@@ -12,6 +12,9 @@ mongoose.connect(process.env.CONNECTION_STRING);
 
 const port = process.env.PORT || 8000;
 
+app.get("/", (req, res) => {
+  res.send("success");
+});
 app.post("/login", (req, res) => {
   const { email, password } = req.body;
   User.findOne({ email: email }).then((user) => {
