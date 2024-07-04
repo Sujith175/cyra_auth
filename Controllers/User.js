@@ -21,8 +21,9 @@ const createPost = async (req, res) => {
 const getSingleData = async (req, res) => {
   try {
     const { id: ID } = req.params;
-    const data = User.findById({ _id: ID });
 
+    const data = await User.findById({ _id: ID });
+    console.log(data);
     if (!data) {
       return res.status(400).json({ msg: `No Task with ID ${ID}` });
     }
