@@ -28,7 +28,7 @@ const getSingleData = async (req, res) => {
       return res.status(400).json({ msg: `No Task with ID ${ID}` });
     }
 
-    res.status(200).json({ data: data });
+    res.status(200).json({ data: [data] });
   } catch (error) {
     res.status(500).json({ msg: error });
   }
